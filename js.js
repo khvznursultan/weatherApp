@@ -52,8 +52,8 @@ btn.addEventListener('click', (e)=>{
         
       
         const sunsetTimestamp = data.sys.sunset;
-        const sunsetMinutes = Math.floor((sunsetTimestamp/60) %24)
-        const sunsetHours = Math.floor((sunsetTimestamp/3600)%24)
+        let sunsetMinutes = Math.floor((sunsetTimestamp/60) %24)
+        let sunsetHours = Math.floor((sunsetTimestamp/3600)%24)
 
     
         let sunsetHoursGTM =(sunsetHours + GTM) % 24
@@ -61,30 +61,36 @@ btn.addEventListener('click', (e)=>{
         if(sunsetHoursGTM < 0){
             sunsetHoursGTM += 24;
         }
-        if(sunsetHoursGTM < 14){
+        else if(sunsetHoursGTM < 14){
             sunsetHoursGTM = `0${sunriseHoursGTM}`
+        }
+        else if(sunsetMinutes < 10){
+            sunsetMinutes = `0${sunsetMinutes}`
         }
         let sunsetTime = `${sunsetHoursGTM}:${sunsetMinutes}`
         console.log(sunsetTime);
 
         const sunriseTimestamp = data.sys.sunrise;
-        const sunriseMinutes = Math.floor((sunriseTimestamp/60) % 60);
-        const sunriseHours = Math.floor((sunriseTimestamp/3600)%24);
+        let sunriseMinutes = Math.floor((sunriseTimestamp/60) % 60);
+        let sunriseHours = Math.floor((sunriseTimestamp/3600)%24);
 
         let sunriseHoursGTM = (sunriseHours + GTM)%24
 
         if(sunriseHoursGTM < 0){
             sunriseHoursGTM += 24;
         }
-        if(sunriseHoursGTM < 14){
+        else if(sunriseHoursGTM < 14){
             sunriseHoursGTM = `0${sunriseHoursGTM}`
+        }
+        if(sunriseMinutes < 10){
+            sunriseMinutes = `0${sunriseMinutes}`
         }
         let sunriseTime =   `${sunriseHoursGTM}:${sunriseMinutes}`
         console.log(sunriseTime);
     weather.innerHTML = `   
     <h3 class="dayWeek">${week}</h3>
         <p class="date">${day}.0${month}.${year}</p>
-        <><>
+        <p class = "dTime">${dTime}</p>
         <form action="">
             <input type="text">
             <button>Получить</button>
