@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: monospace;
+}
+body{
+    background: #8dcff8;
+}
+
+button{
+    width: 70px;
+    background: none;
+    border: 1px solid black;
+}
+.weather{
+    width: 340px;
+    background: url('img/sea-landscape-with-digital-art-style_23-2151158369.avif');
+    opacity: 1;
+    position: relative;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+img{
+    position: relative;
+    right: 40px;
+}
+.dayWeek{
+    font-weight: bold;
+    font-size: 30px;
+}
+.city{
+    position: relative;
+    left: 14px;
+    font-size: 20px;
+    font-weight: 600;
+}
+input{
+    border: 1px solid black;
+    width: 70%;
+    background: none;
+    color: white;
+}
+.city::before{
+    content: '';
+    background: url(img/free-icon-gps-localization-11421064.png);
+    position: absolute;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    right: 300px;
+    top: 3px;
+}
+.temp{
+    font-size: 50px;
+}
+.desc{
+    font-size: 30px;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.224);
+    border-radius: 10px;
+}
+.sun{
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
